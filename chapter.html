@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>The Deccan Plateau, Chapter I, Telangana Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  color-scheme: light;
+  --black:       #0c0a07;
+  --charcoal:    #1a1712;
+  --terracotta:  #b85c2a;
+  --terra-light: #d4703a;
+  --gold:        #c8922a;
+  --gold-light:  #e0b050;
+  --cream:       #f5ede0;
+  --cream-dark:  #e8dbc8;
+  --green:       #243d18;
+  --white:       #faf7f2;
+  --ink:         #1a1712;
+  --ink-mid:     #3a3228;
+  --ink-faint:   #7a6e60;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Jost', sans-serif; background: var(--white); color: var(--ink); overflow-x: hidden; }
+
+/* ===================== NAV ===================== */
+nav#main-nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 200; height: 72px; padding: 0 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(12,10,7,0.96);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+}
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.logo-mark svg { width: 36px; height: 36px; }
+.logo-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--white); letter-spacing: 0.04em; line-height: 1; }
+.logo-sub { font-size: 9px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); opacity: 0.8; display: block; margin-top: 4px; }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(250,247,242,0.75); text-decoration: none; transition: color 0.3s; }
+.nav-links a:hover { color: var(--gold-light); }
+.nav-links a.active { color: var(--gold-light); }
+.nav-cta { background: var(--terracotta) !important; color: var(--white) !important; padding: 8px 22px; border-radius: 2px; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--white); }
+
+/* ===================== CHAPTER HERO ===================== */
+.chapter-hero {
+  position: relative; height: 62vh; min-height: 480px;
+  display: flex; align-items: flex-end;
+  padding-bottom: 0; margin-top: 72px; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1920&q=85');
+  background-size: cover; background-position: center 35%;
+  animation: heroReveal 1.2s cubic-bezier(0.25,0.46,0.45,0.94) both;
+}
+@keyframes heroReveal {
+  from { transform: scale(1.06); filter: brightness(0.4); }
+  to   { transform: scale(1.0); filter: brightness(1); }
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(12,10,7,0.2) 0%, rgba(12,10,7,0.55) 50%, rgba(12,10,7,0.95) 100%);
+}
+.hero-content {
+  position: relative; z-index: 2;
+  width: 100%; max-width: 1200px; margin: 0 auto;
+  padding: 0 48px 56px;
+  animation: fadeUp 0.8s ease 0.3s both;
+}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.chapter-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 10px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--gold-light); margin-bottom: 16px;
+}
+.chapter-tag::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); opacity: 0.6; }
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5.5vw, 68px); font-weight: 400; line-height: 1.08;
+  color: var(--white); max-width: 760px; letter-spacing: -0.01em;
+}
+.hero-title em { font-style: italic; color: var(--gold-light); }
+
+.hero-meta {
+  display: flex; align-items: center; gap: 24px; margin-top: 24px; flex-wrap: wrap;
+}
+.hero-meta span {
+  font-size: 11px; font-weight: 400; letter-spacing: 0.1em;
+  color: rgba(250,247,242,0.82);
+  display: flex; align-items: center; gap: 6px;
+}
+.hero-meta span::before { content: ''; display: block; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); opacity: 0.6; }
+.hero-meta span:first-child::before { display: none; }
+
+/* ===================== BREADCRUMB ===================== */
+.breadcrumb-bar {
+  background: var(--charcoal);
+  padding: 0 48px;
+  display: flex; align-items: center; gap: 10px;
+  height: 44px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.breadcrumb-bar a, .breadcrumb-bar span {
+  font-size: 11px; font-weight: 400; letter-spacing: 0.08em;
+  color: rgba(250,247,242,0.78); text-decoration: none;
+  transition: color 0.3s;
+}
+.breadcrumb-bar a:hover { color: var(--gold-light); }
+.breadcrumb-bar .sep { color: rgba(250,247,242,0.5); font-size: 10px; }
+.breadcrumb-bar .current { color: var(--white); font-weight: 500; }
+
+/* ===================== MAIN LAYOUT ===================== */
+.page-layout {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 280px 1fr;
+  gap: 0; padding: 0 48px;
+  align-items: start;
+  background: var(--white);
+}
+
+/* ===================== SIDEBAR ===================== */
+.sidebar {
+  position: sticky; top: 88px;
+  padding: 48px 0 48px;
+  border-right: 1px solid var(--cream-dark);
+  padding-right: 40px;
+  min-height: calc(100vh - 200px);
+  background: var(--white);
+}
+
+.sidebar-chapter-label {
+  font-size: 9px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--terracotta); margin-bottom: 6px; display: block;
+}
+.sidebar-chapter-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 600; color: var(--ink);
+  line-height: 1.2; margin-bottom: 28px;
+  padding-bottom: 20px; border-bottom: 1px solid var(--cream-dark);
+}
+
+.sidebar-nav { list-style: none; }
+.sidebar-nav li { margin-bottom: 2px; }
+.sidebar-nav a {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 10px 12px;
+  font-size: 13px; font-weight: 400; color: var(--ink-faint);
+  text-decoration: none; border-radius: 3px;
+  transition: background 0.25s, color 0.25s;
+  line-height: 1.4;
+}
+.sidebar-nav a:hover { background: var(--cream); color: var(--ink-mid); }
+.sidebar-nav a.active {
+  background: var(--cream); color: var(--terracotta);
+  font-weight: 500;
+}
+.sidebar-nav a .dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--cream-dark); flex-shrink: 0; margin-top: 6px;
+  transition: background 0.25s;
+}
+.sidebar-nav a.active .dot, .sidebar-nav a:hover .dot { background: var(--terracotta); }
+
+.sidebar-divider { height: 1px; background: var(--cream-dark); margin: 20px 0; }
+
+.sidebar-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-faint); text-decoration: none;
+  transition: color 0.3s, gap 0.3s;
+  margin-bottom: 28px;
+}
+.sidebar-back:hover { color: var(--terracotta); gap: 12px; }
+.sidebar-back svg { flex-shrink: 0; }
+
+/* ===================== ARTICLE CONTENT ===================== */
+.article {
+  padding: 56px 0 80px 56px;
+  max-width: 720px;
+  background: var(--white);
+}
+
+/* Drop cap */
+.article .intro-para::first-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 88px; font-weight: 600;
+  color: var(--terracotta);
+  float: left; line-height: 0.72;
+  margin: 8px 14px 0 0;
+}
+
+.article p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px; font-weight: 400; line-height: 1.85;
+  color: var(--ink-mid); margin-bottom: 28px;
+}
+
+.article h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 3vw, 34px); font-weight: 600;
+  color: var(--ink); line-height: 1.2;
+  margin: 52px 0 20px;
+  padding-top: 8px;
+}
+
+.article h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600;
+  color: var(--ink-mid); line-height: 1.25;
+  margin: 36px 0 16px;
+}
+
+/* Pull Quote */
+.pull-quote {
+  border-left: 3px solid var(--terracotta);
+  margin: 44px 0; padding: 8px 0 8px 32px;
+}
+.pull-quote p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px !important; font-weight: 300 !important; font-style: italic;
+  color: var(--ink) !important; line-height: 1.5 !important;
+  margin-bottom: 12px !important;
+}
+.pull-quote cite {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-faint); font-style: normal;
+}
+
+/* Fact Box */
+.fact-box {
+  background: var(--cream); border-top: 3px solid var(--gold);
+  padding: 28px 32px; margin: 44px 0;
+}
+.fact-box h4 {
+  font-size: 9px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 18px;
+}
+.fact-box ul { list-style: none; }
+.fact-box ul li {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px; font-weight: 400; color: var(--ink-mid);
+  padding: 8px 0; border-bottom: 1px solid var(--cream-dark);
+  line-height: 1.5; display: flex; gap: 12px;
+}
+.fact-box ul li:last-child { border-bottom: none; }
+.fact-box ul li::before { content: '—'; color: var(--terracotta); flex-shrink: 0; }
+
+/* Article Image */
+.article-img {
+  width: 100%; margin: 40px 0;
+  overflow: hidden;
+}
+.article-img img { width: 100%; display: block; transition: transform 0.6s ease; }
+.article-img:hover img { transform: scale(1.02); }
+.article-img figcaption {
+  font-size: 12px; font-weight: 400; letter-spacing: 0.06em;
+  color: var(--ink-faint); padding: 10px 0 0; border-top: 1px solid var(--cream-dark);
+  font-style: italic;
+}
+
+/* ===================== ARTICLE NAV — PREV / NEXT ===================== */
+.article-nav {
+  margin-top: 64px; padding-top: 40px;
+  border-top: 1px solid var(--cream-dark);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3px;
+}
+.article-nav a {
+  display: block; padding: 28px 28px;
+  background: var(--cream); text-decoration: none;
+  transition: background 0.3s, transform 0.3s;
+}
+.article-nav a:hover { background: var(--cream-dark); transform: translateY(-2px); }
+.article-nav a.next { text-align: right; }
+.nav-dir {
+  font-size: 9px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--terracotta); display: flex; align-items: center; gap: 6px; margin-bottom: 8px;
+}
+.article-nav a.next .nav-dir { justify-content: flex-end; }
+.nav-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-weight: 600; color: var(--ink); line-height: 1.3;
+}
+
+/* ===================== RELATED ===================== */
+.related {
+  background: var(--cream); padding: 80px 48px; margin-top: 0;
+}
+.related-inner { max-width: 1200px; margin: 0 auto; }
+.related h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; font-weight: 400; color: var(--ink);
+  margin-bottom: 36px;
+}
+.related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; }
+.related-card {
+  background: var(--white); text-decoration: none; display: block;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.related-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(26,23,18,0.1); }
+.related-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; transition: transform 0.5s; filter: saturate(0.85); }
+.related-card:hover img { transform: scale(1.04); filter: saturate(1.0); }
+.related-body { padding: 20px 20px 24px; border-top: 2px solid var(--cream-dark); transition: border-color 0.3s; }
+.related-card:hover .related-body { border-top-color: var(--terracotta); }
+.related-body .ch-label { font-size: 9px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; }
+.related-body h4 { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--ink); line-height: 1.3; margin-bottom: 8px; }
+.related-body p { font-size: 12px; font-weight: 300; color: var(--ink-faint); line-height: 1.6; }
+
+/* ===================== FOOTER ===================== */
+footer { background: var(--black); padding: 80px 48px 44px; }
+.f-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 64px; padding-bottom: 64px; border-bottom: 1px solid rgba(250,247,242,0.07); }
+.f-brand p { font-size: 13px; font-weight: 300; color: rgba(250,247,242,0.78); line-height: 1.75; max-width: 270px; margin-top: 20px; }
+.f-col h4 { font-size: 9px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 22px; }
+.f-col ul { list-style: none; }
+.f-col li { margin-bottom: 12px; }
+.f-col a { font-size: 13px; font-weight: 300; color: rgba(250,247,242,0.75); text-decoration: none; transition: color 0.3s; }
+.f-col a:hover { color: var(--gold-light); }
+.f-bottom { max-width: 1200px; margin: 0 auto; padding-top: 36px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.f-bottom p { font-size: 11px; font-weight: 300; color: rgba(250,247,242,0.55); }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.72s ease, transform 0.72s ease; }
+.reveal.vis { opacity: 1; transform: translateY(0); }
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 960px) {
+  nav#main-nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .breadcrumb-bar { padding: 0 24px; }
+  .page-layout { grid-template-columns: 1fr; padding: 0 24px; }
+  .sidebar { position: static; padding: 32px 0; border-right: none; border-bottom: 1px solid var(--cream-dark); padding-right: 0; min-height: auto; }
+  .article { padding: 40px 0 64px; max-width: 100%; }
+  .related { padding: 64px 24px; }
+  .related-grid { grid-template-columns: 1fr; }
+  .article-nav { grid-template-columns: 1fr; }
+  .f-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .f-brand { grid-column: span 2; }
+}
+@media (max-width: 600px) {
+  .hero-content { padding: 0 24px 40px; }
+  .article p { font-size: 17px; }
+  .f-grid { grid-template-columns: 1fr; }
+  .f-brand { grid-column: span 1; }
+}
+/* MOBILE MENU */
+.mobile-menu {
+  position: fixed; inset: 0; z-index: 199;
+  background: var(--black);
+  display: flex; flex-direction: column;
+  padding: 96px 40px 48px;
+  transform: translateY(-100%);
+  transition: transform 0.48s cubic-bezier(0.25,0.46,0.45,0.94);
+  pointer-events: none;
+}
+.mobile-menu.open { transform: translateY(0); pointer-events: all; }
+.mm-inner { display: flex; flex-direction: column; height: 100%; }
+.mm-nav { display: flex; flex-direction: column; flex: 1; justify-content: center; gap: 0; }
+.mm-link {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(34px, 9vw, 54px); font-weight: 300;
+  color: rgba(250,247,242,0.78); text-decoration: none;
+  line-height: 1.2; letter-spacing: -0.01em;
+  padding: 14px 0; border-bottom: 1px solid rgba(250,247,242,0.07);
+  transition: color 0.3s, padding-left 0.3s;
+  display: block;
+}
+.mm-link:last-child { border-bottom: none; }
+.mm-link:hover { color: var(--gold-light); padding-left: 10px; }
+.mm-link.cta { color: var(--terracotta); }
+.mm-link.cta:hover { color: var(--terra-light); }
+.mm-footer {
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(250,247,242,0.32); padding-top: 32px;
+  border-top: 1px solid rgba(250,247,242,0.06);
+}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="index.html" class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 38 38" fill="none">
+        <path d="M19 3 L34 13 L34 31 L4 31 L4 13 Z" stroke="#c8922a" stroke-width="1.2" fill="none"/>
+        <path d="M13 31 L13 21 Q19 14.5 25 21 L25 31" stroke="#c8922a" stroke-width="1.2" fill="none"/>
+        <circle cx="19" cy="11" r="2.8" stroke="#c8922a" stroke-width="1" fill="none"/>
+        <line x1="4" y1="31" x2="34" y2="31" stroke="#c8922a" stroke-width="2"/>
+        <line x1="2" y1="13" x2="36" y2="13" stroke="#c8922a" stroke-width="0.7" opacity="0.4"/>
+      </svg>
+    </div>
+    <div>
+      <div class="logo-title">Telangana Library</div>
+      <span class="logo-sub">The Complete Record</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#" class="active">The Land</a></li>
+    <li><a href="#">Struggle</a></li>
+    <li><a href="#">Statehood</a></li>
+    <li><a href="#">Transformation</a></li>
+    <li><a href="#">Culture</a></li>
+    <li><a href="index.html" class="nav-cta">Home</a></li>
+  </ul>
+  <div class="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-inner">
+    <nav class="mm-nav">
+      <a href="index.html" class="mm-link">Home</a>
+      <a href="index.html#explorer" class="mm-link">Chapters</a>
+      <a href="timeline.html" class="mm-link">Timeline</a>
+      <a href="gallery.html" class="mm-link">Gallery</a>
+      <a href="about.html" class="mm-link">About</a>
+    </nav>
+    <div class="mm-footer">telanganalibrary.com</div>
+  </div>
+</div>
+
+
+<!-- CHAPTER HERO -->
+<section class="chapter-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="chapter-tag">Chapter I, The Ancient Land</div>
+    <h1 class="hero-title">The Deccan Plateau,<br><em>Geography, Rivers, and Identity</em></h1>
+    <div class="hero-meta">
+      <span>The Ancient Land</span>
+      <span>Pre-History</span>
+      <span>8 min read</span>
+    </div>
+  </div>
+</section>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <a href="index.html">Home</a>
+  <span class="sep">›</span>
+  <a href="#">Chapter I</a>
+  <span class="sep">›</span>
+  <span class="current">The Deccan Plateau</span>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="page-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <a href="index.html#explorer" class="sidebar-back">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M10 7H4M6 4l-3 3 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      All Chapters
+    </a>
+    <span class="sidebar-chapter-label">Chapter I</span>
+    <div class="sidebar-chapter-title">The Ancient Land</div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#" class="active">
+          <span class="dot"></span>
+          The Deccan Plateau
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="dot"></span>
+          The Kakatiya Dynasty
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="dot"></span>
+          The Ramappa Temple
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="dot"></span>
+          The Telugu Identity
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="dot"></span>
+          The Bahmani Sultanate
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="dot"></span>
+          Water and Agriculture
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <ul class="sidebar-nav">
+      <li><a href="#"><span class="dot"></span>Chapter II, The Nizam Era</a></li>
+      <li><a href="#"><span class="dot"></span>Chapter III, The Struggle</a></li>
+      <li><a href="#"><span class="dot"></span>Chapter IV, The Movement</a></li>
+      <li><a href="#"><span class="dot"></span>Chapter V, Transformation</a></li>
+      <li><a href="#"><span class="dot"></span>Chapter VI, Culture</a></li>
+    </ul>
+  </aside>
+
+  <!-- ARTICLE -->
+  <article class="article">
+
+    <p class="intro-para">Long before the politicians drew their maps, long before the arguments in Parliament and the hunger strikes and the agitations, there was the land itself. The Deccan plateau, one of the oldest geological formations on earth, a raised tableland of ancient volcanic rock that stretches across the heart of peninsular India. This is where Telangana begins, not with a date or a decree, but with the ground beneath its people's feet.</p>
+
+    <p>The plateau sits between 300 and 600 metres above sea level, its surface weathered over hundreds of millions of years into the distinctive black cotton soil that would define the region's agriculture for all of recorded history. This soil, dark and heavy, expands when wet and contracts when dry, producing a landscape of dramatic seasonal transformation that shaped the rhythms of every civilisation that settled here.</p>
+
+    <h2>The Rivers That Made Everything Possible</h2>
+
+    <p>Two rivers define Telangana as much as any political boundary. The Godavari, often called the Dakshina Ganga or the Ganges of the South, enters Telangana from the northwest, sweeping in a great arc through the northern districts before heading east toward the Bay of Bengal. The Krishna enters from the west, cutting through the Nagarjuna Sagar gorge before spreading into its lower basin.</p>
+
+    <p>Between them, these two river systems determined where people could live, where agriculture was possible, and consequently, where power would concentrate. The civilisations of Telangana were not built despite the geography but because of it, at the junctions of watersheds, at the crossings of ancient trade routes, at the places where water and stone and soil combined to make settled life possible.</p>
+
+    <div class="pull-quote">
+      <p>The Deccan was never simply a place. It was a condition, a way of existing at the meeting point of north and south, of river and rock, of ancient and enduring.</p>
+      <cite>From the Encyclopaedia of Deccan History</cite>
+    </div>
+
+    <figure class="article-img">
+      <img src="https://images.unsplash.com/photo-1566552881560-0be862a7c445?w=1200&q=80" alt="The Deccan landscape of Telangana">
+      <figcaption>The distinctive landscape of the Deccan plateau, black cotton soil, scattered granite outcrops, and the seasonal rhythm of rain and drought that shaped Telangana's civilisations.</figcaption>
+    </figure>
+
+    <h2>The Black Soil and the People It Fed</h2>
+
+    <p>The black cotton soil of Telangana, known locally as regur, is among the most fertile agricultural soils in the world. It retains moisture exceptionally well during the dry season, making it particularly suited to crops like cotton, sorghum, and pulses that formed the basis of Telangana's agricultural economy for millennia. The Kakatiya kings understood this, which is why their extraordinary investment in tank irrigation was not simply an engineering project but a civilisational strategy.</p>
+
+    <p>The granite outcrops that punctuate the plateau were equally significant. Providing both building material and defensible high ground, they determined the location of every major settlement and fort in Telangana's history. Warangal, the Kakatiya capital, sits on exactly such a formation. So do Golconda, Elgandal, and a dozen other fortified towns that mark the region's strategic landscape.</p>
+
+    <div class="fact-box">
+      <h4>Key Geographic Facts</h4>
+      <ul>
+        <li>Telangana covers approximately 112,077 square kilometres, making it the twelfth largest state in India by area</li>
+        <li>The Godavari and Krishna rivers together account for over 79% of Telangana's total water resources</li>
+        <li>The state has over 100,000 tanks and water bodies, most traced back to Kakatiya-era construction</li>
+        <li>Average elevation ranges from 300 to 600 metres, with the highest point in the Nallamala Hills at approximately 965 metres</li>
+        <li>The black cotton soil region covers nearly 40% of the state's agricultural land</li>
+      </ul>
+    </div>
+
+    <h2>A Land Apart</h2>
+
+    <p>What made the Deccan distinct was not just its geology but its position. Sitting between the great river plains of the north and the coastal regions of the south, it was neither fully one thing nor the other. Trade routes from the east coast to the western ports crossed it. Armies moving south from the Gangetic plain had to pass through it or around it. This position made Telangana a crossroads, absorbing influences from every direction while remaining fundamentally itself.</p>
+
+    <p>This is the paradox that runs through all of Telangana's history: a land intensely connected to everywhere around it, and yet distinctly, insistently its own. The Telugu language, the tank systems, the particular forms of devotion and festival and architecture that developed here, none of them are simply borrowed from elsewhere. They emerged from this specific combination of land and water and people over centuries, producing something that could not have grown anywhere else.</p>
+
+    <h3>The Climate and Its Consequences</h3>
+
+    <p>Telangana's climate is another defining characteristic. Hot and semi-arid for much of the year, with a monsoon season from June to October that delivers most of the annual rainfall in a concentrated burst, it is a climate that rewards preparation and punishes neglect. The tank systems that the Kakatiyas built were a direct response to this reality, storing monsoon water against the long dry season that follows. When those systems functioned well, Telangana flourished. When they fell into neglect, as they did under centuries of administrative indifference, the consequences were measured in drought and famine and farmer despair.</p>
+
+    <p>The climate question remained at the heart of Telangana's political demands well into the twenty-first century. The argument that Andhra Pradesh systematically neglected Telangana's water infrastructure and diverted river water to coastal Andhra at Telangana's expense was one of the most potent in the separatist movement's arsenal, because it was rooted in something immediate and visible: the land itself, thirsty or flourishing depending on whose priorities governed the rivers.</p>
+
+    <!-- PREV / NEXT NAV -->
+    <nav class="article-nav">
+      <a href="#">
+        <div class="nav-dir">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M8 2L4 6l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Previous
+        </div>
+        <div class="nav-title">Introduction to Chapter I</div>
+      </a>
+      <a href="#" class="next">
+        <div class="nav-dir">
+          Next
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="nav-title">The Kakatiya Dynasty</div>
+      </a>
+    </nav>
+
+  </article>
+</div>
+
+<!-- RELATED ARTICLES -->
+<section class="related">
+  <div class="related-inner">
+    <h3 class="reveal">Continue Reading</h3>
+    <div class="related-grid">
+      <a href="#" class="related-card reveal">
+        <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80" alt="Kakatiya Dynasty">
+        <div class="related-body">
+          <span class="ch-label">Chapter I</span>
+          <h4>The Kakatiya Dynasty</h4>
+          <p>The Telugu kingdom that ruled from Warangal and built a civilisation that defines Telangana's cultural identity to this day.</p>
+        </div>
+      </a>
+      <a href="#" class="related-card reveal" style="transition-delay:0.1s">
+        <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80" alt="Ramappa Temple">
+        <div class="related-body">
+          <span class="ch-label">Chapter I</span>
+          <h4>The Ramappa Temple</h4>
+          <p>A UNESCO World Heritage Site and the crowning symbol of Kakatiya achievement in architecture and devotion.</p>
+        </div>
+      </a>
+      <a href="#" class="related-card reveal" style="transition-delay:0.2s">
+        <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80" alt="Water and Agriculture">
+        <div class="related-body">
+          <span class="ch-label">Chapter I</span>
+          <h4>Water and Agriculture</h4>
+          <p>The Kakatiya tank network, one of the world's great irrigation achievements, and how water shaped Telangana for a thousand years.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-grid">
+    <div class="f-brand">
+      <a href="index.html" class="logo">
+        <div class="logo-mark"><svg viewBox="0 0 38 38" fill="none"><path d="M19 3 L34 13 L34 31 L4 31 L4 13 Z" stroke="#c8922a" stroke-width="1.2" fill="none"/><path d="M13 31 L13 21 Q19 14.5 25 21 L25 31" stroke="#c8922a" stroke-width="1.2" fill="none"/><circle cx="19" cy="11" r="2.8" stroke="#c8922a" stroke-width="1" fill="none"/><line x1="4" y1="31" x2="34" y2="31" stroke="#c8922a" stroke-width="2"/></svg></div>
+        <div><div class="logo-title">Telangana Library</div><span class="logo-sub">The Complete Record</span></div>
+      </a>
+      <p>The definitive archive of Telangana's history, culture, struggle, and transformation. Built for everyone.</p>
+    </div>
+    <div class="f-col"><h4>History</h4><ul><li><a href="#">Kakatiya Era</a></li><li><a href="#">Nizam Era</a></li><li><a href="#">1969 Movement</a></li><li><a href="#">TRS and KCR</a></li><li><a href="#">Statehood 2014</a></li></ul></div>
+    <div class="f-col"><h4>Explore</h4><ul><li><a href="#">Transformation</a></li><li><a href="#">Education</a></li><li><a href="#">Culture</a></li><li><a href="#">Gallery</a></li><li><a href="#">Full Timeline</a></li></ul></div>
+    <div class="f-col"><h4>About</h4><ul><li><a href="#">Our Mission</a></li><li><a href="#">Contact</a></li><li><a href="#">telanganalibrary.com</a></li></ul></div>
+  </div>
+  <div class="f-bottom">
+    <p>&copy; 2026 Telangana Library. All rights reserved.</p>
+    <p>Built with pride for Telangana.</p>
+  </div>
+</footer>
+
+<script>
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); ro.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+</script>
+<script>
+// MOBILE MENU TOGGLE
+(function() {
+  var btn = document.querySelector('.hamburger');
+  var menu = document.getElementById('mobileMenu');
+  if (!btn || !menu) return;
+  btn.addEventListener('click', function() {
+    var isOpen = menu.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mm-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && menu.classList.contains('open')) {
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+})();
+</script>
+</body>
+</html>
